@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div className='bg-[url(/hero-mobile.png)] md:bg-[url(/hero.png)] bg-no-repeat bg-cover min-h-screen flex min-sm:items-center text-white px-4 '>
       <div className='min-sm:max-w-[815px] flex flex-col  space-y-5 min-sm:pl-56 max-sm:text-center max-sm:items-center max-sm:pt-20 pt-10'>
-        <h1 className='text-[48px]'>
+        <h1 className='text-[48px] max-sm:leading-12'>
           The only kitchen scale that auto-tracks calories
         </h1>
         <p>
