@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from './ui/button';
 
 const Hero = () => {
   return (
@@ -16,6 +17,10 @@ const Hero = () => {
           <img src='/icons/stars.png' alt='stars' className='mr-5' />
           <span>5,128+ early bird pre-orders</span>
         </div>
+
+        <Button className='bg-primary text-white text-2xl font-bold rounded-2xl py-6 px-4 max-w-64'>
+          PREORDER NOW
+        </Button>
       </div>
     </div>
   );

@@ -1,35 +1,73 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import NavLinks from './NavLinks';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 import MobileNavigation from './MobielNavigation';
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav>
-      <div className='bg-white px-8'>
-        <div className=' flex justify-between items-center min-h-20   container  mx-auto'>
-          <Image src='/icons/logo.svg' alt='Logo' width={150} height={150} />
+    <>
+      {/* Fixed navbar that changes style when scrolled */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'
+        }`}
+      >
+        <div className='container mx-auto px-4 flex justify-between items-center'>
+          <div className='flex items-center gap-2'>
+            <Image src='/icons/logo.svg' alt='Logo' width={150} height={150} />
+          </div>
 
-          <ul className='flex items-center space-x-9 max-sm:hidden'>
+          {/* Desktop Navigation */}
+          <div className='hidden md:flex items-center'>
             <NavLinks />
-          </ul>
+          </div>
 
-          <Button className='rounded-2xl btn-gradient font-bold text-white max-sm:hidden'>
+          <Button className='btn-gradient rounded-2xl  font-bold text-white max-sm:hidden'>
             GET 50% DISCOUNT
           </Button>
-
-          <MobileNavigation />
+          {/* Mobile Navigation */}
+          <div className='md:hidden'>
+            <MobileNavigation />
+          </div>
         </div>
       </div>
+      {/* Content below navbar - this div adds space equal to navbar height */}
+      <div className='h-[72px]'></div>{' '}
+      {/* Adjust this height to match your navbar height */}
+      {/* Main content */}
+      <div className='bg-secondary px-4 py-8'>
+        <div className='max-w-3xl mx-auto text-center'>
+          <h1 className='text-base md:text-sm font-bold mb-6'>
+            Use AI to identify and record the food you weigh and log calories
+            automatically. World&apos;s First Launch!
+          </h1>
 
-      <div className='bg-secondary  min-h-20 flex justify-center items-center'>
-        <p className='container mx-auto text-center text-lg font-medium'>
-          Use AI to identify and record the food you weigh and log calories
-          automatically. World&apos;s First Launch!
-        </p>
+          {/* Additional content goes here */}
+        </div>
       </div>
-    </nav>
+    </>
   );
 };
 
