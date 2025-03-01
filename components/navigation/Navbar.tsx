@@ -40,7 +40,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center'>
+          <div className='hidden md:flex items-center space-x-7'>
             <NavLinks />
           </div>
 
