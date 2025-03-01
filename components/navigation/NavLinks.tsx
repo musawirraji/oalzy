@@ -11,7 +11,14 @@ import { cn } from '@/lib/utils';
 const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
   const pathname = usePathname();
   return (
-    <>
+    <div
+      className={cn(
+        'flex',
+        isMobileNav
+          ? 'flex-col'
+          : 'flex-row items-center gap-1 sm:gap-2 md:gap-4'
+      )}
+    >
       {navLinks.map((item) => {
         const isActive =
           (pathname.includes(item.href) && item.href.length > 1) ||
@@ -23,7 +30,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
             key={item.name}
             className={cn(
               isActive ? 'text-primary' : isMobileNav ? 'text-white' : '',
-              'flex items-center justify-start gap-4 bg-transparent p-4 hover:text-primary transition-all duration-300'
+              'flex items-center bg-transparent px-2 py-2 md:px-3 hover:text-primary transition-all duration-300 whitespace-nowrap text-sm md:text-base'
             )}
           >
             {item.name}
@@ -35,12 +42,10 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
             {LinkComponent}
           </SheetClose>
         ) : (
-          <ul key={item.name} className='flex items-center'>
-            {LinkComponent}
-          </ul>
+          <React.Fragment key={item.name}>{LinkComponent}</React.Fragment>
         );
       })}
-    </>
+    </div>
   );
 };
 export default NavLinks;

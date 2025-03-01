@@ -28,33 +28,28 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Fixed navbar that changes style when scrolled */}
       <div
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 ${
           isScrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'
         }`}
       >
-        <div className='container mx-auto px-4 flex justify-between items-center'>
-          <div className='flex items-center gap-2'>
-            <Image src='/icons/logo.svg' alt='Logo' width={150} height={150} />
-          </div>
+        <div className='container mx-auto flex justify-between items-center max-w-7xl'>
+          <Image src='/icons/logo.svg' alt='Logo' width={120} height={120} />
 
-          {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center space-x-7'>
+          <div className='max-sm:hidden'>
             <NavLinks />
           </div>
 
-          <Button className='btn-gradient rounded-2xl  font-bold text-white max-sm:hidden'>
+          <Button className='btn-gradient rounded-2xl font-bold text-white max-sm:hidden text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2'>
             GET 50% DISCOUNT
           </Button>
+
           {/* Mobile Navigation */}
-          <div className='md:hidden'>
-            <MobileNavigation />
-          </div>
+          <MobileNavigation />
         </div>
       </div>
       {/* Content below navbar - this div adds space equal to navbar height */}
-      <div className='h-[100px]'></div>{' '}
+      <div className='h-[90px]'></div>{' '}
       {/* Adjust this height to match your navbar height */}
       {/* Main content */}
       <div className='bg-secondary p-4'>
