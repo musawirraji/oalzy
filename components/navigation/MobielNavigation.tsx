@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/sheet';
 
 import NavLinks from './NavLinks';
+import DiscountButton from '../button/DiscountButton';
 
 const MobileNavigation = () => {
   return (
@@ -20,18 +21,16 @@ const MobileNavigation = () => {
           alt='Hamburger Menu'
           width={36}
           height={36}
-          className='invert-colors sm:hidden'
+          className='lg:hidden'
         />
       </SheetTrigger>
-      <SheetContent
-        side='left'
-        className='background-light900_dark200 border-none'
-      >
+      <SheetContent className='border-none'>
         <SheetTitle className='hidden'>Navigation</SheetTitle>
-        <div className='no-scrollbar flex h-[calc(100vh-80px)] flex-col justify-between overflow-y-auto'>
+        <div className='no-scrollbar flex h-screen flex-col justify-between overflow-y-auto'>
           <SheetClose asChild>
-            <section className='flex h-full flex-col gap-6 pt-16'>
+            <section className='flex h-full flex-col gap-6 pt-16 '>
               <NavLinks isMobileNav />
+              <DiscountButton />
             </section>
           </SheetClose>
         </div>

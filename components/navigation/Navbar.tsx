@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import NavLinks from './NavLinks';
-import { Button } from '@/components/ui/button';
 import MobileNavigation from './MobielNavigation';
+import DiscountButton from '../button/DiscountButton';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,13 +36,13 @@ const Navbar = () => {
         <div className='container mx-auto flex justify-between items-center max-w-7xl'>
           <Image src='/icons/logo.svg' alt='Logo' width={120} height={120} />
 
-          <div className='max-sm:hidden'>
+          <div className='max-lg:hidden'>
             <NavLinks />
           </div>
 
-          <Button className='btn-gradient rounded-2xl font-bold text-white max-sm:hidden text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2'>
-            GET 50% DISCOUNT
-          </Button>
+          <div className='max-lg:hidden'>
+            <DiscountButton />
+          </div>
 
           {/* Mobile Navigation */}
           <MobileNavigation />

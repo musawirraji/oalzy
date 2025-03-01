@@ -16,7 +16,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
         'flex',
         isMobileNav
           ? 'flex-col'
-          : 'flex-row items-center gap-1 sm:gap-2 md:gap-4'
+          : 'flex-row items-center gap-1 sm:gap-1 lg:gap-4'
       )}
     >
       {navLinks.map((item) => {
