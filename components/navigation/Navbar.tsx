@@ -54,12 +54,12 @@ const Navbar = () => {
         </div>
       </div>
       {/* Content below navbar - this div adds space equal to navbar height */}
-      <div className='h-[72px]'></div>{' '}
+      <div className='h-[100px]'></div>{' '}
       {/* Adjust this height to match your navbar height */}
       {/* Main content */}
-      <div className='bg-secondary px-4 py-8'>
-        <div className='max-w-3xl mx-auto text-center'>
-          <h1 className='text-base md:text-sm font-bold mb-6'>
+      <div className='bg-secondary p-4'>
+        <div className='max-w-4xl mx-auto text-center'>
+          <h1 className='text-base md:text-lg mb-6 '>
             Use AI to identify and record the food you weigh and log calories
             automatically. World&apos;s First Launch!
           </h1>
